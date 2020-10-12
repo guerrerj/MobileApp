@@ -1,21 +1,73 @@
+import 'dart:math';
+import 'dart:ui';
 import 'package:flutter/material.dart';
-import 'package:flutter/physics.dart';
 
-void main() => runApp(PSETester());
+void main() => runApp(MyVirtualStudy());
 
-class PSETester extends StatelessWidget {
+class Palette {
+  static final background = Color(0x1C172D);
+}
+
+class MyVirtualStudy extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        title: "Virtual Study Groups",
-        home: Scaffold(
-            appBar: AppBar(title: Text("Virtual Study Groups")),
-            body: CardWidget(
-              child: FlutterLogo(size: 128),
-            )));
+        theme: ThemeData(backgroundColor: Color.fromRGBO(28, 23, 43, 1)),
+        home: Home());
   }
 }
 
+class Home extends StatefulWidget {
+  @override
+  _HomeState createState() => _HomeState();
+}
+
+class _HomeState extends State<Home> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+        appBar: AppBar(
+          title: Text("Virtual Study"),
+          centerTitle: true,
+        ),
+        body: Stack(children: <Widget>[
+          Container(color: Color.fromRGBO(28, 23, 43, 1))
+        ]));
+  }
+}
+
+/// mixin Particle implements Drawable, Animatable {}
+///
+/// class CompositeParticle extends Particle {
+///   Particle child;
+///
+///   @override
+///   void draw(Canvas canvas, Size size) {
+///     child.draw(canvas, size);
+///   }
+///
+///   @override
+///   void update(AnimationController controller) {
+///     child.update(controller);
+///   }
+/// }
+/// class SimpleExample extends StatelessWidget {
+///   @override
+///   Widget build(BuildContext context) {
+///     return Particles(
+///       particle: Aligned(
+///         child: FadingCircle(),
+///       ),
+///       child: (context, particles) {
+///         return Button(
+///           onPressed: () {
+///             particles.forward();
+///           }
+///         );
+///       }
+///     );
+///   }
+/// }
 
 /*
 class ChatScreen extends StatefulWidget {
